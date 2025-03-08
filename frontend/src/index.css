@@ -1,52 +1,77 @@
-
+/* Reset and Global Styles */
 *,
 ::before,
-::after{
+::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-label{
+label {
   font-size: 20px;
 }
 
 html,
-body{
+body {
   height: 100%;
   width: 100%;
 }
 
-body{
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Ensures content aligns below fixed navbar */
   align-items: center;
 }
 
-.container{
+/* Full-width Navbar */
+.full-width-navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #4CAF50;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  z-index: 1000;
+}
+
+.navbar-content {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Form Container */
+.container {
   background-color: #FFF;
   padding: 32px 48px;
   border-radius: 10px;
   width: 100%;
   max-width: 400px;
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  margin-top: 70px; /* Prevents content from being hidden under navbar */
 }
 
-.container > h1{
+.container > h1 {
   margin-bottom: 20px;
 }
 
-.container > form{
+.container > form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.container div{
+
+.container div {
   display: flex;
   flex-direction: column;
 }
 
-.container input{
+.container input {
   width: 100%;
   font-size: 20px;
   padding: 10px;
@@ -55,12 +80,13 @@ body{
   border-bottom: 1px solid black;
 }
 
-.container input::placeholder{
+.container input::placeholder {
   font-size: 12px;
   font-style: italic;
 }
 
-button{
+/* Button Styling */
+button {
   background-color: purple;
   border: none;
   font-size: 20px;
@@ -69,4 +95,136 @@ button{
   padding: 10px;
   cursor: pointer;
   margin: 10px 0;
+}
+
+/* Expense Tracker Styling */
+.user-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px; /* Prevents overlap with navbar */
+}
+
+.expense-list {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.expense-description {
+  font-weight: bold;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 7px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* Header Container - Logout Button Alignment */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logout-button {
+  margin-left: auto;
+  background-color: purple;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: darkviolet;
+}
+
+.amount-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.income-amount {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.expense-amount {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Existing styles remain the same */
+
+/* New styles for Amount Container */
+.amount-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 20px; /* Enhanced padding for spacing */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling the balance displayed */
+.balance {
+  font-size: 24px; /* Larger font size for visibility */
+  font-weight: bold; /* Bold text for emphasis */
+  color: #333; /* Darker color for better readability */
+  text-align: center; /* Center alignment for a neat appearance */
+  margin-bottom: 10px; /* Bottom margin for spacing */
+}
+
+/* Income Amount Styling */
+.income-amount {
+  color: #27ae60; /* Green for income */
+  font-weight: bold; /* Emphasized font weight */
+  font-size: 20px; /* Slightly larger font size */
+}
+
+/* Expense Amount Styling */
+.expense-amount {
+  color: #e74c3c; /* Red for expenses */
+  font-weight: bold; /* Emphasized font weight */
+  font-size: 20px; /* Slightly larger font size */
+}
+
+/* Additional styles for mobile responsiveness */
+@media (max-width: 600px) {
+  .amount-container {
+    flex-direction: column; /* Switch to column on small screens */
+    align-items: flex-start; /* Align items to start */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .income-amount, .expense-amount {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .balance {
+    font-size: 22px; /* Adjust balance font size */
+  }
 }
