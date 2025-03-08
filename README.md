@@ -1,1 +1,1 @@
-# MERN-Auth
+# FinManApp
